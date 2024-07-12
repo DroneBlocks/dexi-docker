@@ -1,7 +1,7 @@
 services:
   dashboard:
     build:
-      dockerfile: Dockerfile_dashboard
+      dockerfile: dashboard/Dockerfile
     ports:
       - "80:80"
   ttyd:
@@ -14,11 +14,11 @@ services:
       - "8081:8080"
   droneblocks:
     build:
-      dockerfile: Dockerfile_droneblocks
+      dockerfile: droneblocks/Dockerfile
     ports:
       - "7777:80"
   web-tools:
     build:
-      dockerfile: Dockerfile_webtools
+      dockerfile: webtools/Dockerfile
     ports:
       - "7778:80"
