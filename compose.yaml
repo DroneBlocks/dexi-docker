@@ -1,24 +1,11 @@
 services:
-  dashboard:
-    build:
-      dockerfile: dashboard/Dockerfile
-    ports:
-      - "80:80"
-  ttyd:
-    image: "tsl0922/ttyd"
-    ports:
-      - "7681:7681"
-  code-server:
-    image: "codercom/code-server:latest"
-    ports:
-      - "8081:8080"
-  droneblocks:
-    build:
-      dockerfile: droneblocks/Dockerfile
-    ports:
-      - "7777:80"
-  web-tools:
-    build:
-      dockerfile: webtools/Dockerfile
-    ports:
-      - "7778:80"
+  uxrce:
+    image: "dennis:uxrce"
+    network_mode: "host"
+  rosbridge:
+    image: "dexi-docker:rosbridge"
+    network_mode: "host"
+  webtools:
+    image: "dexi-docker:webtools"
+    network_mode: "host"
+    
