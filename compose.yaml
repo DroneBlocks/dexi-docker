@@ -1,11 +1,14 @@
 services:
   uxrce:
     image: "dennis:uxrce"
-    network_mode: "host"
+    ports:
+     - "8888:8888/udp"
   rosbridge:
     image: "dexi-docker:rosbridge"
-    network_mode: "host"
+    ports:
+     - "9090:9090"
   webtools:
     image: "dexi-docker:webtools"
-    network_mode: "host"
+    ports:
+     - "7777:80"
     
