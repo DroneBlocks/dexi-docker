@@ -2,7 +2,7 @@ FROM ubuntu:22.04
 
 SHELL ["/bin/bash", "-c"]
 
-RUN apt update && apt upgrade && apt install -y \
+RUN apt update && apt upgrade -y && apt install -y \ 
 software-properties-common \
 curl \
 git \
