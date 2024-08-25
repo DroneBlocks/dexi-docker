@@ -1,5 +1,5 @@
 # Run from Docker Hub
-docker run -p 6080:80 --security-opt seccomp=unconfined --shm-size=512m droneblocks/dexi-px4-sitl:latest
+docker run -p 6080:80 --name=dexi-sitl --security-opt seccomp=unconfined --shm-size=512m droneblocks/dexi-px4-sitl:latest
 
 # Login
 
