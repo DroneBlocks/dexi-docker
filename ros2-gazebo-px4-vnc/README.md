@@ -9,7 +9,7 @@ docker run -p 6080:80 --name=dexi-sitl --security-opt seccomp=unconfined --shm-s
 
 3. cd PX4-Autopilot
 
-4. ./Tools/setup/ubuntu.sh (this will take a few minutes)
+4. For the first run: ./setup.bash (this will take 30 seconds to a minute)
 
 5. make px4_sitl gz_x500 (this will launch Gazebo sim)
 
@@ -18,6 +18,8 @@ docker run -p 6080:80 --name=dexi-sitl --security-opt seccomp=unconfined --shm-s
 7. You should see the simulated drone takeoff in Gazebo
 
 8. For uxrce dds you should open a new terminal and run: MicroXRCEAgent udp4 --port 8888
+
+9. Open QGC on host computer and you should have comms
 
 
 
