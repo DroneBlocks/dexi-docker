@@ -1,5 +1,5 @@
 # Run from Docker Hub
-docker run -p 6080:80 --name=dexi-sitl --security-opt seccomp=unconfined --shm-size=512m droneblocks/dexi-px4-sitl:latest
+docker run -p 6080:80 -p 9090:9090 --name=dexi-sitl --security-opt seccomp=unconfined --shm-size=512m droneblocks/dexi-px4-sitl:latest
 
 # Login
 
@@ -21,10 +21,13 @@ docker run -p 6080:80 --name=dexi-sitl --security-opt seccomp=unconfined --shm-s
 
 9. Open QGC on host computer and you should have comms
 
-
-
-
 # Build Locally
 
 docker build -t droneblocks/dexi-px4-sitl:latest .
+
+# Run with DEXI repo for testing
+
+cd ~/_dev/dexi/dexi
+
+docker run -p 6080:80 --security-opt seccomp=unconfined -v ${PWD}:/dexi_ws/src/ --name dexi-dev --shm-size=512m droneblocks/dexi-px4-sitl:latest
 
