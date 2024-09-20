@@ -26,5 +26,11 @@ COPY edit_rcS.bash .
 
 COPY setup.bash .
 
+RUN mkdir -p dexi_ws/src
+
+RUN cd dexi_ws/src && git clone -b release/1.14 https://github.com/PX4/px4_msgs
+
+RUN cd dexi_ws && . /opt/ros/humble/setup.bash && colcon build
+
 # Change ownership to ubuntu user
 RUN chown -R 1000:1000 /px4
