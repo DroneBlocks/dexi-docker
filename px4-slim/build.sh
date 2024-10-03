@@ -1,0 +1,1 @@
+sudo docker build -t px4-slim:latest .
