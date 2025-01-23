@@ -20,6 +20,11 @@ RUN git clone https://github.com/eProsima/Micro-XRCE-DDS-Agent.git \
 
 RUN cd /px4/PX4-Autopilot && ./Tools/setup/ubuntu.sh
 
+WORKDIR /px4/PX4-Autopilot
+
+# https://discuss.px4.io/t/dont-run-1-with-gz-doesnt-work/32124
+RUN make px4_sitl_default
+
 WORKDIR /px4
 
 COPY edit_rcS.bash .
@@ -28,7 +33,8 @@ COPY setup.bash .
 
 RUN mkdir -p dexi_ws/src
 
-RUN cd dexi_ws/src && git clone -b release/1.14 https://github.com/PX4/px4_msgs
+#RUN cd dexi_ws/src && git clone -b release/1.15 https://github.com/PX4/px4_msgs
+RUN cd dexi_ws/src && git clone -b release/1.15 https://github.com/PX4/px4_msgs
 
 RUN cd dexi_ws && . /opt/ros/humble/setup.bash && colcon build
 
