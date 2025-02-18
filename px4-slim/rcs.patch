@@ -1,0 +1,22 @@
+diff --git a/ROMFS/px4fmu_common/init.d-posix/rcS b/ROMFS/px4fmu_common/init.d-posix/rcS
+index 0fd28a0f13..a163d0c40f 100644
+--- a/ROMFS/px4fmu_common/init.d-posix/rcS
++++ b/ROMFS/px4fmu_common/init.d-posix/rcS
+@@ -307,7 +307,16 @@ then
+ 	uxrce_dds_port="$PX4_UXRCE_DDS_PORT"
+ fi
+ 
+-uxrce_dds_client start -t udp -h 127.0.0.1 -p $uxrce_dds_port $uxrce_dds_ns
++if [ -n "$PX4_UXRCE_DDS_AG_IP" ]
++then 
++    #set the uxrce override ip if env variable is defined
++	uxrce_ag_ip="$PX4_UXRCE_DDS_AG_IP"
++else
++    uxrce_ag_ip="127.0.0.1"
++fi
++
++
++uxrce_dds_client start -t udp -h $uxrce_ag_ip -p $uxrce_dds_port $uxrce_dds_ns
+ 
+ if param greater -s MNT_MODE_IN -1
+ then

@@ -1,0 +1,15 @@
+FROM dexi-docker:ros2
+
+SHELL ["/bin/bash", "-c"]
+
+WORKDIR /root
+
+RUN mkdir -p /root/dexi_ws/src
+
+RUN git clone -b develop https://github.com/droneblocks/dexi /root/dexi_ws/src/dexi
+
+WORKDIR /root/dexi_ws
+
+RUN . /opt/ros/humble/setup.bash && \
+ colcon build --packages-select dexi_msgs && \
+ colcon build --packages-select droneblocks
