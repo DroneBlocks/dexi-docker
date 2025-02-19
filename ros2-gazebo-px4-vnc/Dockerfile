@@ -28,6 +28,8 @@ WORKDIR /px4
 
 COPY edit_rcS.bash .
 
+RUN dos2unix edit_rcS.bash
+
 COPY setup.bash .
 
 #RUN mkdir -p dexi_ws/src
