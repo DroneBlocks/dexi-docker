@@ -3,6 +3,8 @@ RUN useradd -ms /bin/bash ubuntu
 
 WORKDIR /px4
 
+RUN sudo pip3 install pysm
+
 # This branch has some basic tweaks for this to work on Mac M3
 RUN git clone -b feature/docker-mac-m3 https://github.com/DroneBlocks/PX4-Autopilot --recursive
 
