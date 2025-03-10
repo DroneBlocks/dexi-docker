@@ -3,7 +3,12 @@ RUN useradd -ms /bin/bash ubuntu
 
 WORKDIR /px4
 
+# For DEXI PX4 Offboard Manager
 RUN sudo pip3 install pysm
+
+# For Node-RED Dev
+RUN sudo apt update -y
+RUN sudo apt install -y ros-humble-rosbridge-server
 
 # This branch has some basic tweaks for this to work on Mac M3
 RUN git clone -b feature/docker-mac-m3 https://github.com/DroneBlocks/PX4-Autopilot --recursive
